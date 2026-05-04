@@ -1,0 +1,17 @@
+name = "aimusicapp"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+main = ".open-next/worker.js"
+assets = { directory = ".open-next/assets", binding = "ASSETS" }
+
+[vars]
+STORAGE_BACKEND = "kv"
+
+# ──────────────────────────────────────────────────────────────────
+# KV 네임스페이스 설정
+# Cloudflare 대시보드 > Workers & Pages > KV > "네임스페이스 만들기"에서
+# "aimusicapp-playlists" 이름으로 생성 후 아래 id 값을 교체하세요
+# ──────────────────────────────────────────────────────────────────
+[[kv_namespaces]]
+binding = "PLAYLISTS_KV"
+id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
