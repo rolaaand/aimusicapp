@@ -14,4 +14,4 @@ STORAGE_BACKEND = "kv"
 # ──────────────────────────────────────────────────────────────────
 [[kv_namespaces]]
 binding = "PLAYLISTS_KV"
-id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+id = "f30c6f664b4240b0afb062b5a7a67481"
