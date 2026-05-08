@@ -119,6 +119,7 @@ export default function PublishPage() {
   const [agreeAIError, setAgreeAIError] = useState('')
   const [agreeRespError, setAgreeRespError] = useState('')
 
+  const [comment, setComment] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
@@ -174,6 +175,7 @@ export default function PublishPage() {
           playlistUrl,
           composingTool: finalComposingTool,
           lyricsTool: finalLyricsTool,
+          comment: comment.trim() || undefined,
         }),
       })
       const data = await res.json()
@@ -237,6 +239,20 @@ export default function PublishPage() {
             className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors"
           />
           <p className="text-xs text-gray-500 mt-1">유튜브 재생목록 페이지의 전체 주소를 붙여넣으세요</p>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-300 mb-2">
+            나의 한마디 <span className="text-gray-500 font-normal">(선택)</span>
+          </label>
+          <textarea
+            value={comment}
+            onChange={e => setComment(e.target.value.slice(0, 100))}
+            placeholder="이 재생목록을 한 줄로 소개해주세요"
+            rows={3}
+            className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 transition-colors resize-none"
+          />
+          <p className="text-xs text-gray-500 mt-1 text-right">{comment.length}/100</p>
         </div>
 
         {/* 구분선 */}

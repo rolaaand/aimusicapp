@@ -13,6 +13,8 @@ export interface Playlist {
   title: string
   composingTool: string
   lyricsTool: string
+  comment?: string
+  thumbnail?: string
   createdAt: string
   ratings: Rating[]
 }
@@ -82,6 +84,8 @@ export async function createPlaylist(input: {
   title: string
   composingTool: string
   lyricsTool: string
+  comment?: string
+  thumbnail?: string
 }): Promise<Playlist> {
   const data = await readData()
   const playlist: Playlist = {
